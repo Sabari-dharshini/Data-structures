@@ -1,0 +1,53 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+vector<pair<int, int>> directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+
+void BFS(vector<vector<int>>& grid, int i, int j, int n) {
+    
+    if (i < 0 || j < 0 || i >= n || j >= n || grid[i][j] == 0) {
+        return;
+    }
+
+    
+    grid[i][j] = 0;
+
+    for (auto iter : directions) {
+        int ni = i + iter.first;
+        int nj = j + iter.second;
+        BFS(grid, ni, nj, n); 
+    }
+}
+
+int islands(vector<vector<int>>& grid) {
+    int n = grid.size();
+    int no_of_islands = 0;
+
+   
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (grid[i][j] == 1) {  
+                BFS(grid, i, j, n);  
+                no_of_islands++;     
+            }
+        }
+    }
+
+    return no_of_islands;
+}
+
+int main() {
+    vector<vector<int>> grid = {
+        {1, 1, 0, 0, 0},
+        {1, 1, 1, 0, 0},
+        {0, 0, 0, 0,0},
+        {0, 0,0, 0, 0},
+        {0,0,0,0,0}};
+
+    int result = islands(grid);  
+    cout << "Number of islands: " << result << endl;  
+    return 0;
+}
