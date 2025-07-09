@@ -1,0 +1,34 @@
+public class leetcode{
+    public static void main(String[]args){
+        listNode head=null;
+        listNode x0=new listNode(10,null);
+        listNode x1=new listNode(20,null);
+        listNode x2=new listNode(30,null);
+        listNode x3=new listNode(40,null);
+        listNode x4=new listNode(50,null);
+        System.out.println(x0.val+"\t"+x0.next);
+        System.out.println(x1.val+"\t"+x0.next);
+        System.out.println(x2.val+"\t"+x0.next);
+        System.out.println(x3.val+"\t"+x0.next);
+        System.out.println(x4.val+"\t"+x0.next);
+        int x=10;
+        head=x0;
+        x0.next=x1;
+        x1.next=x2;
+        x2.next=x3;
+        x3.next=x4;
+        for(listNode t=head;t!=null;t=t.next){
+            System.out.println(t.val);
+        }
+        
+    }
+
+}
+class listNode{
+    int val;
+    listNode next;
+    public listNode(int val,listNode next){
+        this.val=val;
+        this.next=next;
+    }
+}
