@@ -1,0 +1,71 @@
+class Node{
+    int data;
+    Node prev;
+    Node next;
+Node(int data){
+ this.data=data;
+ this.prev=null;
+ this.next=null;
+}
+
+public class doublyLinked{
+     public static void main(String[]args){
+           Node head;
+           head=listCreate(head);
+           display(head);
+           head=deleteNode(Head);
+           display(head);
+}
+Node listCreate(Node head){
+    Node newNode=null,temp=null;
+    System.out.println("Enter the no of nodes");
+    int no=5;
+    for(int i=0;i<no;i++){
+            newNode=new node((i+1)*10,null,null);
+            if(head=null){
+                 head=newNode;
+                 temp=newNode;
+              }else{
+                 temp.next=newNode;
+                 newNode.prev=temp;
+                 temp=newNode;
+                 }
+}
+    return head;
+}
+static void display(node Head){
+    for(Node temp=head;temp!=null;temp=temp.next){
+            System.out.print(temp.data+" ");
+      }
+ System.out.println("");
+}
+}
+static Node deleteNode(Node head){
+       System.out.println("Enter the Position");
+       int swi=1;
+switch(swi){
+     case 1:
+         temp=head;
+         head=head.next;
+         head.prev=null;
+         temp.next=null;
+         break;
+     case 2:
+         temp=head;
+         int delpos=3;
+         for(i=1;i<delpos;temp=temp.next,i++);
+           temp.next.prev=temp.prev;
+           temp.prev.next=null;
+           break;
+     case 3:
+         temp=head;
+         for(;temp.next!=null;temp=temp.next);
+         temp.prev.next=null;
+         temp.prev=null;
+         break;
+         
+
+          
+}
+}
+}
