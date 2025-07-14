@@ -1,0 +1,101 @@
+class Node{
+  int data;
+  Node next;
+  Node prev;
+public Node(int data){
+       this.data=data;
+       this.next=null;
+       this.prev=null;
+}
+}
+public class Deletion{
+     public static void main(String[]args){
+            Deletion del=new Deletion();
+            del.listCreate(10);
+            del.listCreate(20);
+            del.listCreate(30);
+            del.listCreate(40);       
+            delete(10);
+            display();
+ }
+Node listCreate(Node l){
+    Node newNode=null,temp=null;
+    System.out.println("Enter the no of nodes");
+    int no=5;
+    for(int i=0;i<no;i++){
+            newNode=new node((i+1)*10,null,null);
+            if(l==null){
+                 l=newNode;
+                 temp=newNode;
+              }else{
+                 temp.next=newNode;
+                 newNode.prev=temp;
+                 temp=newNode;
+                 }
+}
+    return head;
+}
+void insertatBegin(int data){
+  Node temp=new Node(int y);
+  if(l==null){
+       temp.data=x;
+       temp.next=null;
+       temp.prev=null;
+}
+else{
+    temp.data=x;
+    temp.next=l;
+    l.prev=temp;
+    l.next=null;
+}
+}
+
+
+
+
+'
+
+void insertatMiddle(int x,int pos){
+Node temp=new Node(int y);
+Node p=l;
+int curpos=1;
+while(p!=null&&curpos<pos)
+{
+p=p.next;
+curpos=curpos+1;
+}
+temp.next=p.next;
+p.next.prev=temp;
+p.next=temp;
+temp.prev=p;
+}
+public void delete(int x){
+      Node temp=null;
+      while(temp!=null&&temp.data!=x){
+         temp=temp.next;
+         }
+ if(temp==null){
+      System.out.println("Node not found!");
+      return;
+}
+if(temp==l){
+     l=temp.next;
+     if(l!=null){
+         l.prev=null;
+}
+else{
+ temp.next.prev=temp.prev;
+ temp.prev.next=temp.next;
+}
+if(temp.next==null){
+    temp.prev.next=null;
+}
+}
+public void display(Node l){
+    Node temp=l;
+    while(temp!=null){
+        System.out.println(temp.data);
+        temp=temp.next;
+}
+}
+}
